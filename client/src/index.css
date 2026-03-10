@@ -1,0 +1,101 @@
+/* 1. Define the Neon Palette */
+:root {
+  --neon-cyan: #0ff;
+  --neon-pink: #f0f;
+  --dark-bg: #0a0a0c;
+  --glass-bg: rgba(10, 10, 12, 0.85);
+  --glass-border: rgba(0, 255, 255, 0.2);
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace; /* Fits the terminal/hacker vibe */
+  overflow-x: hidden;
+}
+
+/* 2. Layering for the 3D Background */
+.content-overlay {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+/* 3. Bootstrap Card Overrides (Glassmorphism) */
+.card.bg-dark {
+  background-color: var(--glass-bg) !important;
+  backdrop-filter: blur(10px); /* Gives that translucent glass look */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.card.border-info { 
+  border: 1px solid var(--neon-cyan) !important; 
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2); 
+}
+.card.border-danger { 
+  border: 1px solid var(--neon-pink) !important; 
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.2); 
+}
+
+/* 4. Bootstrap Tabs Overrides */
+.custom-tabs .nav-link {
+  color: #888;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.custom-tabs .nav-link:hover { 
+  color: var(--neon-cyan); 
+}
+.custom-tabs .nav-link.active {
+  color: var(--neon-cyan);
+  background-color: transparent;
+  border-bottom: 2px solid var(--neon-cyan);
+  text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* 5. Bootstrap Table Overrides */
+.table-dark {
+  --bs-table-bg: transparent; /* Makes rows transparent to see the card background */
+  border-color: var(--glass-border);
+}
+.table-dark th { 
+  color: var(--neon-cyan); 
+  text-transform: uppercase; 
+}
+
+/* 6. Form Input Overrides */
+.form-control, .form-select {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid var(--glass-border);
+  color: #fff !important;
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+/* 7. Neon Button Glows */
+.btn-outline-info {
+  color: var(--neon-cyan);
+  border-color: var(--neon-cyan);
+}
+.btn-outline-info:hover {
+  background-color: var(--neon-cyan);
+  color: #000;
+  box-shadow: 0 0 15px var(--neon-cyan);
+}
+
+.btn-outline-danger {
+  color: var(--neon-pink);
+  border-color: var(--neon-pink);
+}
+.btn-outline-danger:hover {
+  background-color: var(--neon-pink);
+  color: #000;
+  box-shadow: 0 0 15px var(--neon-pink);
+}
