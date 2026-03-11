@@ -16,7 +16,7 @@ const TopNav = () => {
     localStorage.removeItem('nexus_token');
     localStorage.removeItem('nexus_role');
     
-    // Kick them back to the login screen
+    // send user back to the login screen
     navigate('/login');
   };
 

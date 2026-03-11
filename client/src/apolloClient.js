@@ -6,7 +6,7 @@ const httpLink = createHttpLink({
   credentials: 'include', // Send HTTPOnly cookies
 });
 
-// saved the token to localStorage so this attaches it as a Bearer token
+// saved token to localStorage so it attaches it as a Bearer token
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('nexus_token');
   return {

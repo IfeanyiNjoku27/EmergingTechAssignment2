@@ -54,7 +54,6 @@ const PlayerDashboard = () => {
                         <Card.Text>
                           <strong>Game:</strong> {tourney.game} <br />
                           <strong>Date:</strong> {formatDate(tourney.date)} <br/>
-                          {tourney.prizePool && <span><strong>Prize:</strong> {tourney.prizePool} <br/></span>}
                         </Card.Text>
                         <Button variant="outline-danger" onClick={() => handleJoin(tourney.id)}>
                           Join Roster

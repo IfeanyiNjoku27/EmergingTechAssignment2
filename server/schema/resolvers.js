@@ -19,13 +19,13 @@ const requireAdmin = (user) => {
 
 export const resolvers = {
   Query: {
-    // ── Auth ──────────────────────────────────────────────
+    // ── Auth ─
     me: async (_, __, { user }) => {
       requireAuth(user);
       return user;
     },
 
-    // ── Users ─────────────────────────────────────────────
+    // ── Users ─
     getUsers: async (_, __, { user }) => {
       requireAdmin(user);
       return await User.find({});
@@ -35,7 +35,7 @@ export const resolvers = {
       return await User.findById(id);
     },
 
-    // ── Players ───────────────────────────────────────────
+    // ── Players ─
     getPlayers: async (_, __, { user }) => {
       requireAuth(user);
       return await Player.find({}).populate('user').populate('tournaments');
@@ -52,7 +52,7 @@ export const resolvers = {
       });
     },
 
-    // ── Tournaments ───────────────────────────────────────
+    // ── Tournaments ───────
     getTournaments: async (_, __, { user }) => {
       requireAuth(user);
       return await Tournament.find({}).populate({ path: 'players', populate: { path: 'user' } });
@@ -79,7 +79,7 @@ export const resolvers = {
   },
 
   Mutation: {
-    // ── Auth ──────────────────────────────────────────────
+    // ── Auth ──────────────
     register: async (_, { username, email, password, role = 'Player' }, { res }) => {
       const existing = await User.findOne({ $or: [{ email }, { username }] });
       if (existing) throw new GraphQLError('User with that email or username already exists.');
@@ -111,7 +111,7 @@ export const resolvers = {
       return 'Logged out successfully.';
     },
 
-    // ── Admin: User management ────────────────────────────
+    // ── Admin: User management ───
     createUser: async (_, { username, email, password, role }, { user }) => {
       requireAdmin(user);
       const existing = await User.findOne({ $or: [{ email }, { username }] });
@@ -130,7 +130,7 @@ export const resolvers = {
       return 'User deleted successfully.';
     },
 
-    // ── Admin: Tournament management ──────────────────────
+    // ── Admin: Tournament management ─────
     createTournament: async (_, args, { user }) => {
       requireAdmin(user);
       return await Tournament.create(args);
@@ -175,7 +175,7 @@ export const resolvers = {
       return Tournament.findById(tournamentId).populate({ path: 'players', populate: { path: 'user' } });
     },
 
-    // ── Player mutations ──────────────────────────────────
+    // ── Player mutations ──
     joinTournament: async (_, { tournamentId }, { user }) => {
       requireAuth(user);
       const player = await Player.findOne({ user: user._id });

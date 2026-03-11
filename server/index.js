@@ -49,9 +49,6 @@ app.use(
   })
 );
 
-// Health check
-app.get('/health', (req, res) => res.json({ status: 'OK', message: 'Gaming Tournaments API is running 🎮' }));
 
 await new Promise((resolve) => httpServer.listen({ port: PORT }, resolve));
-console.log(`🚀 Server ready at http://localhost:${PORT}/graphql`);
-console.log(`🎮 Gaming Tournaments API is live!`);
+console.log(` Server ready at http://localhost:${PORT}/graphql`);

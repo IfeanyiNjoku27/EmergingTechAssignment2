@@ -5,7 +5,7 @@ const ThreeBackground = () => {
   const mountRef = useRef(null);
 
   useEffect(() => {
-    // 1. Scene Setup
+    //  Scene Setup
     const scene = new THREE.Scene();
     
     // Add a dark fog to fade out the grid in the distance
@@ -27,7 +27,6 @@ const ThreeBackground = () => {
     renderer.domElement.style.pointerEvents = 'none'; // Ensure it doesn't block UI clicks
     mountRef.current.appendChild(renderer.domElement);
 
-    // 2. The Infinite Cyberpunk Grid (Neon Cyan)
     // GridHelper(size, divisions, colorCenterLine, colorGrid)
     const gridHelper = new THREE.GridHelper(150, 60, 0x00ffff, 0x00ffff);
     gridHelper.position.y = -2;
@@ -35,7 +34,7 @@ const ThreeBackground = () => {
     gridHelper.material.opacity = 0.15; // Keep it subtle so it doesn't distract from the UI
     scene.add(gridHelper);
 
-    // 3. The Floating Core (Neon Pink Icosahedron)
+    // The Floating Core (Neon Pink Icosahedron)
     const geometry = new THREE.IcosahedronGeometry(3, 0); // Geometric, edgy shape
     const material = new THREE.MeshBasicMaterial({ 
       color: 0xff00ff, 
@@ -47,7 +46,7 @@ const ThreeBackground = () => {
     core.position.y = 2; // Float above the grid
     scene.add(core);
 
-    // 4. Interactive Mouse Tracking
+    // Interactive Mouse Tracking
     let mouseX = 0;
     let mouseY = 0;
     const handleMouseMove = (event) => {
@@ -57,7 +56,7 @@ const ThreeBackground = () => {
     };
     window.addEventListener('mousemove', handleMouseMove);
 
-    // 5. The Animation Loop
+    // The Animation Loop
     const animate = () => {
       requestAnimationFrame(animate);
 
@@ -81,7 +80,7 @@ const ThreeBackground = () => {
     };
     animate();
 
-    // 6. Handle Window Resize
+    // Handle Window Resize
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
@@ -89,7 +88,7 @@ const ThreeBackground = () => {
     };
     window.addEventListener('resize', handleResize);
 
-    // 7. Strict React Cleanup
+    // Strict React Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);

@@ -1,4 +1,4 @@
-/* 1. Define the Neon Palette */
+/* Define the Neon Palette */
 :root {
   --neon-cyan: #0ff;
   --neon-pink: #f0f;
@@ -10,11 +10,11 @@
 body {
   background-color: var(--dark-bg);
   color: #fff;
-  font-family: 'Courier New', Courier, monospace; /* Fits the terminal/hacker vibe */
+  font-family: 'Courier New', Courier, monospace; 
   overflow-x: hidden;
 }
 
-/* 2. Layering for the 3D Background */
+/* Layering for the 3D Background */
 .content-overlay {
   position: relative;
   z-index: 10;
@@ -22,7 +22,7 @@ body {
   padding-bottom: 50px;
 }
 
-/* 3. Bootstrap Card Overrides (Glassmorphism) */
+/* Bootstrap Card Overrides (Glassmorphism) */
 .card.bg-dark {
   background-color: var(--glass-bg) !important;
   backdrop-filter: blur(10px); /* Gives that translucent glass look */
@@ -38,7 +38,7 @@ body {
   box-shadow: 0 0 10px rgba(255, 0, 255, 0.2); 
 }
 
-/* 4. Bootstrap Tabs Overrides */
+/* Bootstrap Tabs Overrides */
 .custom-tabs .nav-link {
   color: #888;
   border: none;
@@ -58,7 +58,7 @@ body {
   text-shadow: 0 0 8px var(--neon-cyan);
 }
 
-/* 5. Bootstrap Table Overrides */
+/* Bootstrap Table Overrides */
 .table-dark {
   --bs-table-bg: transparent; /* Makes rows transparent to see the card background */
   border-color: var(--glass-border);
@@ -68,7 +68,7 @@ body {
   text-transform: uppercase; 
 }
 
-/* 6. Form Input Overrides */
+/* Form Input Overrides */
 .form-control, .form-select {
   background-color: rgba(0, 0, 0, 0.5) !important;
   border: 1px solid var(--glass-border);
@@ -79,7 +79,7 @@ body {
   box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
 }
 
-/* 7. Neon Button Glows */
+/*  Neon Button Glows */
 .btn-outline-info {
   color: var(--neon-cyan);
   border-color: var(--neon-cyan);
