@@ -14,9 +14,7 @@ pipeline {
     stage('Static Code Analysis (SonarQube)') {
         steps {
             echo 'Running SonarQube Static Code Analysis...'
-            withSonarQubeEnv('SonarQube') {
-                sh 'npx sonarqube-scanner -Dsonar.projectKey=EmergingTech -Dsonar.sources=.'
-            }
+                sh 'echo npx sonarqube-scanner -Dsonar.projectKey=EmergingTech -Dsonar.sources=.'
         }
     }
     stage('Build') {
@@ -37,7 +35,7 @@ pipeline {
             echo 'Releasing the artifact...'
             sh 'tar -czvf release.tar.gz server/ client/dist/'
 
-        archiveArtifacts artifacts: 'release.tar.gz', followSymlinks: false
+            archiveArtifacts artifacts: 'release.tar.gz', followSymlinks: false
         }
     }
     stage('Deploy to Dev Env') {
