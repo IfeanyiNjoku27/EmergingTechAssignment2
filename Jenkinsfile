@@ -20,7 +20,7 @@ pipeline {
     stage('Build') {
         steps {
             echo 'Building the project...'
-            sh 'cd server && install'
+            sh 'cd server && npm install'
             sh 'cd client && npm install && npm run build'
         }
     }
