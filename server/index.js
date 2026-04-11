@@ -11,7 +11,7 @@ import { typeDefs } from './schema/typeDefs.js';
 import { resolvers } from './schema/resolvers.js';
 import { getUser } from './middleware/auth.js';
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000; //added fallback port configuration
 
 // Connect to MongoDB
 await connectDB();
