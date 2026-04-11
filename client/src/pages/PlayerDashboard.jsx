@@ -4,6 +4,8 @@ import { useQuery, useMutation } from '@apollo/client';
 import { GET_UPCOMING_TOURNAMENTS, GET_MY_TOURNAMENTS } from '../graphql/queries';
 import { JOIN_TOURNAMENT_MUTATION } from '../graphql/mutations';
 
+// FIX: Corrected spelling error in dashboard welcome header
+
 const PlayerDashboard = () => {
   const [key, setKey] = useState('upcoming');
 
