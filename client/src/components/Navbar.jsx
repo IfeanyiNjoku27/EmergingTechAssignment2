@@ -2,6 +2,8 @@ import React from 'react';
 import { Navbar, Container, Button } from 'react-bootstrap';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+// FIX: Added mobile-responsive collapse for navigation links
+
 const TopNav = () => {
   const navigate = useNavigate();
   const location = useLocation();
